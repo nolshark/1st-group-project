@@ -10,7 +10,6 @@ forexRequest.onload = function() {
   console.log(forexResponse);
 }
 
-
 // Cards API
 var deckUrl = 'https://www.deckofcardsapi.com/api/deck/new/?deck_count=6';
 
