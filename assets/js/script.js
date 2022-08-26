@@ -30,25 +30,49 @@ function getDefaultRate(){
 var deckUrl = 'https://www.deckofcardsapi.com/api/deck/new/?deck_count=6';
 var shuffleUrl = 'Error: ShuffleUrl not assigned';
 var deckID = '';
+var drawUrl = 'Error: drawUrl not assigned';
+var cards = '';
+
 
 function getApi(request) {
-  fetch(deckUrl, {
-    //mode: "no-cors"
-  })
+  fetch(deckUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
       deckID = data.deck_id;
-      shuffleUrl = 'https://www.deckofcardsapi.com/api/deck/' + deckID + '/shuffle/?remaining=true';
       console.log("Deck ID is:" + deckID);
-      console.log("Shuffle URL is: " + shuffleUrl);
+      shuffleCards(deckID);
+    })
+}
+
+function hand(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=2')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      deckID = data.deck_id
+      cards = data.cards;
+      console.log("Here are your Cards:" + cards);
+    })
+}
+
+function shuffleCards(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/shuffle/?remaining=true')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      hand(deckID);
     });
 }
 
-function shuffleCards(request) {
-  fetch(shuffleUrl)
+function drawCards(request) {
+  fetch(drawUrl)
     .then(function (response) {
       return response.json();
     })
@@ -57,4 +81,4 @@ function shuffleCards(request) {
     });
 }
 
-getApi(deckUrl); 
+getApi(deckUrl);
