@@ -9,31 +9,32 @@
     <title>Blackjack</title>
 </head>
 
-<body>
-    <header>
+<body class="grid grid-rows-6 h-screen p-4">
+    <header class="row-span-1">
         <h1 class="text-4xl font-bold text-center">BLACKJACK</h1>
     </header>
 
-    <main>
-        <section class="info-screens">
-            <div class="game-options">
-                <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1">Rules</button>
+    <main class="row-span-5 grid gap-4 grid-cols-6">
+        <section class="section text-center col-span-1 border-black border-2 border-solid info-screens ">
+            <div class="h-2/3 game-options">
+                <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 hover:underline">Rules</button>
+                <br>
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1">High Scores</button>
             </div>
-            <div class="currency options">
+
+            <div class="section h-1/3 border-gray-200 border-2 border-solid currency-options">
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1">What's In Your Wallet?</button>
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1">What's Your Fancy?</button>
             </div>
         </section>
 
-        <section class="game=screen">
+        <section class="section text-center place-items-center col-span-5 border-gray-200 border-2 border-solid game-screen">
             <div>
                 <button class="bg-red-600 rounded-md border-solid border-2 border-black p-1 mx-1">Test Your Might</button>
             </div>
         </section>
     </main>
 
- mo-roughdraft
     <footer>
         Powered by <a href="https://www.amdoren.com">Amdoren</a>
     </footer>
