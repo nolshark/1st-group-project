@@ -1,13 +1,29 @@
 // Forex API
-var forexURL = 'https://api.exchangerate.host/latest';
+var forexURL = 'https://api.exchangerate.host/latest?base=USD';
 var forexRequest = new XMLHttpRequest();
+var currencyList = ['USD','EUR','JPY','GBP','AUD','CAD','CHF','NZD','PLN','UAH'];
+var exchangeRatesNamesList = [];
+var exchangeRatesValuesList = [];
+
 forexRequest.open('GET', forexURL);
 forexRequest.responseType = 'json';
 forexRequest.send();
-
 forexRequest.onload = function () {
   var forexResponse = forexRequest.response;
+  exchangeRatesNamesList = Object.keys(forexResponse.rates);
+  exchangeRatesValuesList = Object.values(forexResponse.rates);
   console.log(forexResponse);
+  console.log(exchangeRatesNamesList);
+  console.log(exchangeRatesValuesList);
+}
+
+function getCurrencyRate(currency){
+  var position = exchangeRatesNamesList.indexOf(currency);
+  return exchangeRatesValuesList[position];
+}
+
+function getDefaultRate(){
+  return getCurrencyRate(currencyList[0]);
 }
 
 // Cards API
@@ -41,4 +57,4 @@ function shuffleCards(request) {
     });
 }
 
-getApi(deckUrl);
+getApi(deckUrl); 
