@@ -1,20 +1,18 @@
 // Forex API
-var forexURL = 'https://api.exchangerate.host/latest?base=USD';
+var forexUrl = 'https://api.exchangerate.host/latest?base=USD';
 var forexRequest = new XMLHttpRequest();
 var currencyList = ['USD','EUR','JPY','GBP','AUD','CAD','CHF','NZD','PLN','UAH'];
 var exchangeRatesNamesList = [];
 var exchangeRatesValuesList = [];
+var currentDefaultCurrency = 0;
 
-forexRequest.open('GET', forexURL);
+forexRequest.open('GET', forexUrl);
 forexRequest.responseType = 'json';
 forexRequest.send();
 forexRequest.onload = function () {
   var forexResponse = forexRequest.response;
   exchangeRatesNamesList = Object.keys(forexResponse.rates);
   exchangeRatesValuesList = Object.values(forexResponse.rates);
-  console.log(forexResponse);
-  console.log(exchangeRatesNamesList);
-  console.log(exchangeRatesValuesList);
 }
 
 function getCurrencyRate(currency){
@@ -22,8 +20,16 @@ function getCurrencyRate(currency){
   return exchangeRatesValuesList[position];
 }
 
+function convertCurrency(currency){
+  return currentDefaultCurrency * getCurrencyRate(currency);
+}
+
 function getDefaultRate(){
   return getCurrencyRate(currencyList[0]);
+}
+
+function resetDefaultCurrency(){
+  currentDefaultCurrency = 0;
 }
 
 // Cards API
