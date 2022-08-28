@@ -39,31 +39,67 @@ var deckID = '';
 var drawUrl = 'Error: drawUrl not assigned';
 var cards = '';
 
-
 function getApi(request) {
   fetch(deckUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       deckID = data.deck_id;
       console.log("Deck ID is:" + deckID);
       shuffleCards(deckID);
     })
 }
 
-function hand(deckID) {
-  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=2')
+function playerHand(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1')
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       deckID = data.deck_id
       cards = data.cards;
-      console.log("Here are your Cards:" + cards);
+      console.log(cards);
     })
+}
+
+function dealerHand(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      deckID = data.deck_id;
+      cards = data.cards;
+      console.log(cards);
+    })
+}
+function playerHand2(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      deckID = data.deck_id
+      cards = data.cards;
+      console.log(cards);
+    })
+}
+function dealerHand2(deckID) {
+  fetch('https://www.deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      deckID = data.deck_id
+      cards = data.cards;
+      console.log(cards);
+      cardValues(cards);
+    })
+}
+
+function cardValues(cards) {
+  
 }
 
 function shuffleCards(deckID) {
@@ -73,7 +109,10 @@ function shuffleCards(deckID) {
     })
     .then(function (data) {
       console.log(data);
-      hand(deckID);
+      playerHand(deckID);
+      playerHand2(deckID);
+      dealerHand(deckID);
+      dealerHand2(deckID);
     });
 }
 
