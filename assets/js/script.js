@@ -3,7 +3,7 @@
 // Forex API
 var forexUrl = 'https://api.exchangerate.host/latest?base=USD';
 var forexRequest = new XMLHttpRequest();
-var currencyList = ['USD','EUR','JPY','GBP','AUD','CAD','CHF','NZD','PLN','UAH'];
+var currencyList = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'NZD', 'PLN', 'UAH'];
 var exchangeRatesNamesList = [];
 var exchangeRatesValuesList = [];
 var currentDefaultCurrency = 0;
@@ -17,20 +17,20 @@ forexRequest.onload = function () {
   exchangeRatesValuesList = Object.values(forexResponse.rates);
 }
 
-function getCurrencyRate(currency){
+function getCurrencyRate(currency) {
   var position = exchangeRatesNamesList.indexOf(currency);
   return exchangeRatesValuesList[position];
 }
 
-function convertCurrency(currency){
+function convertCurrency(currency) {
   return currentDefaultCurrency * getCurrencyRate(currency);
 }
 
-function getDefaultRate(){
+function getDefaultRate() {
   return getCurrencyRate(currencyList[0]);
 }
 
-function resetDefaultCurrency(){
+function resetDefaultCurrency() {
   currentDefaultCurrency = 0;
 }
 
@@ -39,7 +39,7 @@ var deckUrl = 'https://www.deckofcardsapi.com/api/deck/new/?deck_count=6';
 var shuffleUrl = 'Error: ShuffleUrl not assigned';
 var deckID = '';
 var drawUrl = 'Error: drawUrl not assigned';
-var cards = ['UNASSIGNED-PH1','UNASSIGNED-DH1','UNASSIGNED-PH2','UNASSIGNED-DH2'];
+var cards = ['UNASSIGNED-PH1', 'UNASSIGNED-DH1', 'UNASSIGNED-PH2', 'UNASSIGNED-DH2'];
 
 function getApi(request) {
   fetch(deckUrl)
@@ -117,7 +117,7 @@ function dealerHand2(deckID) {
 }
 
 function cardValues(cards) {
-  
+
 }
 
 function drawCards(request) {
@@ -155,11 +155,11 @@ value of each hand for each hand in the card array, then the program
 will come to a conclusion as to whether the user won, lost, or drew
 */
 function playRound() {
-  
+
 }
 
 function gameLogic() {
-  while(stop === false){
+  while (stop === false) {
     playRound();
   }
 }
