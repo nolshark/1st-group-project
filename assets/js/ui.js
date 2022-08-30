@@ -11,6 +11,8 @@ var curSel = document.querySelector(".currency-select");
 var tranSel = document.querySelector(".translate-select");
 var curChoice = document.querySelector(".currency-choice");
 var tranChoice = document.querySelector(".translate-choice");
+var hitButton = document.querySelector(".hit-button");
+var holdButton = document.querySelector(".hold-button");
 
 // Start Game
 
@@ -18,6 +20,8 @@ function startGame () {
     startButton.style.display = "none";
 
     quitButton.style.display = "grid";
+    hitButton.style.display = "grid";
+    holdButton.style.display = "grid";
 }
 
 startButton.addEventListener("click", startGame);
@@ -96,4 +100,6 @@ curReturn.addEventListener("click", () => {
     startButton.style.display = "grid";
   
     quitButton.style.display = "none";
+    hitButton.style.display = "none";
+    holdButton.style.display = "none";
   });

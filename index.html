@@ -19,11 +19,11 @@
         <section class="grid grid-rows-6 col-span-1 border-black border-2 border-solid info-screens ">
             <div class="grid row-span-4 content-center border-red-600 border-2 border-solid game-options">
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 hover:underline rules-button">Rules</button>
-                <p class="hidden rules">These are the rules of Black Jack</p>
+                <p class="hidden text-4xl rules ">These are the rules of Black Jack</p>
                 <br>
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 scores-button">High Scores</button>
-                <div class="hidden flex grow border-solid border-2 border-gray-200 high-scores">
-                    <h2>These are the High Scores</h2>
+                <div class="hidden grid row-start-1 row-end-3 border-solid border-2 border-gray-200 high-scores">
+                    <h1 class="text-4x1">High Rollers Club</h1>
                     <ol></ol>
                 </div>
                 <br>
@@ -44,10 +44,16 @@
             </div>
         </section>
 
-        <section class="grid justify-center content-center col-span-5 border-gray-200 border-2 border-solid game-screen">
-            <div>
+        <section class="grid col-span-5 border-gray-200 border-2 border-solid grid-cols-12 grid-rows-3 game-screen">
+            <div class="grid row-start-2 col-start-6 col-span-2">
                 <button class="bg-red-600 rounded-md border-solid border-2 border-black p-1 mx-1 start-button">Test Your Might</button>
             </div>
+            <div class="grid row-start-3 col-start-1">
+            <button class="grid hidden bg-red-600 rounded-md border-solid border-2 border-black p-1 mx-1 hit-button">HIT</button>
+            </div>
+            <div class="grid row-start-3 col-start-2">
+                <button class="grid hidden bg-red-600 rounded-md border-solid border-2 border-black p-1 mx-1 hold-button">HOLD 'EM</button>
+                </div>
         </section>
     </main>
 
