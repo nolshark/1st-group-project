@@ -3,6 +3,7 @@ var rulesButton = document.querySelector(".rules-button");
 var scoresButton = document.querySelector(".scores-button");
 var optsReturn = document.querySelector(".options-return");
 var curReturn = document.querySelector(".currency-return");
+var quitButton = document.querySelector(".quit-button");
 var infoScreens = document.querySelector(".info-screens");
 var rules = document.querySelector(".rules");
 var highScores = document.querySelector(".high-scores");
@@ -14,7 +15,9 @@ var tranChoice = document.querySelector(".translate-choice");
 // Start Game
 
 function startGame () {
+    startButton.style.display = "none";
 
+    quitButton.style.display = "grid";
 }
 
 startButton.addEventListener("click", startGame);
@@ -85,4 +88,12 @@ curReturn.addEventListener("click", () => {
     curChoice.style.display = "none";
     tranChoice.style.display = "none";
     
+  });
+
+  //Quit Game
+
+  quitButton.addEventListener("click", () => {
+    startButton.style.display = "grid";
+  
+    quitButton.style.display = "none";
   });
