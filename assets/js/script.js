@@ -114,13 +114,13 @@ function tallyResult(result) {
 }
 
 // function that returns the cards value
-function getCardValue(card) {
-  return card.value;
+function getCardValue(cards) {
+  return cards.value;
 }
 
 // function that returns the cards image
-function getCardImage(card) {
-  return card.image;
+function getCardCode(cards) {
+  return cards.image;
 }
 
 // function for converting card values to integers
@@ -165,6 +165,11 @@ function aceLogic(player) {
   } else {
     return 1;
   }
+}
+
+function displayCardImage(){
+  getCardCode(cards);
+  var img = $("<img>").attr("src","https://www.deckofcardsapi.com/static/img/" + cards.code[0] + ".png")
 }
 
 // function for handling each round
