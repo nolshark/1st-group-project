@@ -25,7 +25,7 @@ function getCurrencyRate(currency) {
 
 // function that converts the default currency to the conversion currency for display purposes
 function convertCurrency(currency) {
-  return currentDefaultCurrency * getCurrencyRate(currency);
+  return parseInt(currentDefaultCurrency * getCurrencyRate(currency));
 }
 
 // function that resets the current default currency value to 0
@@ -87,7 +87,27 @@ function populateCards(deckID) {
 }
 // ====[UI Logic]====
 var body = document.body; 
-var infoEl = document.createElement("div"); 
+var infoEl1= document.createElement("div"); 
+var infoEl2 = document.createElement("div");
+var infoEl3 = document.createElement("div");
+var infoEl4 = document.createElement("div");
+var infoEl5 = document.createElement("div");
+var infoEl6 = document.createElement("div");
+var infoEl7 = document.createElement("div");
+var infoEl8 = document.createElement("div");
+var infoEl9 = document.createElement("div");
+var infoEl10 = document.createElement("div");
+var infoEl11 = document.createElement("div");
+var infoEl12 = document.createElement("div");
+var infoEl13 = document.createElement("div");
+var infoEl14 = document.createElement("div");
+var infoEl15 = document.createElement("div");
+var infoEl16 = document.createElement("div");
+var infoEl17 = document.createElement("div");
+var infoEl18 = document.createElement("div");
+var infoEl19 = document.createElement("div");
+var infoEl20 = document.createElement("div");
+
 var imageEl1 = document.createElement("img"); 
 var imageEl2 = document.createElement("img"); 
 var imageEl3 = document.createElement("img"); 
@@ -107,11 +127,71 @@ var imageEl16 = document.createElement("img");
 var imageEl17 = document.createElement("img"); 
 var imageEl18 = document.createElement("img"); 
 var imageEl19 = document.createElement("img"); 
-var imageEl20= document.createElement("img"); 
+var imageEl20 = document.createElement("img"); 
+var gameScreen = document.querySelector(".game-screen"); 
 
 function getCardImage(cards) {
   return cards.image;
 }
+
+var pUSD = document.createElement("p"); 
+var pEUR = document.createElement("p");
+var pJPY = document.createElement("p");
+var pGBP = document.createElement("p");
+var pAUD = document.createElement("p");
+var pCAD = document.createElement("p");
+var pCHF = document.createElement("p");
+var pNZD = document.createElement("p");
+var pPLN = document.createElement("p");
+var pUAH = document.createElement("p");
+
+var infoEl21 = document.createElement("div"); 
+var infoEl22 = document.createElement("div"); 
+var infoEl23 = document.createElement("div"); 
+var infoEl24 = document.createElement("div"); 
+var infoEl25 = document.createElement("div"); 
+var infoEl26 = document.createElement("div"); 
+var infoEl27 = document.createElement("div"); 
+var infoEl28 = document.createElement("div");
+var infoEl29 = document.createElement("div");  
+var infoEl30 = document.createElement("div"); 
+
+var currencyOptions = document.querySelector(".currency-options"); 
+
+function populateCurrencyScreen(){
+  currencyOptions.appendChild(infoEl21);
+  currencyOptions.appendChild(infoEl22);
+  currencyOptions.appendChild(infoEl23); 
+  currencyOptions.appendChild(infoEl24);
+  currencyOptions.appendChild(infoEl25);
+  currencyOptions.appendChild(infoEl26); 
+  currencyOptions.appendChild(infoEl27); 
+  currencyOptions.appendChild(infoEl28); 
+  currencyOptions.appendChild(infoEl29); 
+  currencyOptions.appendChild(infoEl30);
+  infoEl21.appendChild(pUSD); 
+  infoEl22.appendChild(pEUR); 
+  infoEl23.appendChild(pJPY); 
+  infoEl24.appendChild(pGBP); 
+  infoEl25.appendChild(pAUD); 
+  infoEl26.appendChild(pCAD); 
+  infoEl27.appendChild(pCHF); 
+  infoEl28.appendChild(pNZD); 
+  infoEl29.appendChild(pPLN); 
+  infoEl30.appendChild(pUAH); 
+  pUSD.textContent = currentDefaultCurrency; 
+  pEUR.textContent = convertCurrency(currencyList[1]); 
+  pJPY.textContent = convertCurrency(currencyList[2]); 
+  pGBP.textContent = convertCurrency(currencyList[3]); 
+  pAUD.textContent = convertCurrency(currencyList[4]); 
+  pCAD.textContent = convertCurrency(currencyList[5]); 
+  pCHF.textContent = convertCurrency(currencyList[6]); 
+  pNZD.textContent = convertCurrency(currencyList[7]); 
+  pPLN.textContent = convertCurrency(currencyList[8]); 
+  pUAH.textContent = convertCurrency(currencyList[9]); 
+}
+
+populateCurrencyScreen(); 
 
 // function that returns the cards image
 function getCardCode(cards) {
@@ -120,27 +200,68 @@ function getCardCode(cards) {
 
 function populateCardImage(code) {
   
-body.appendChild(infoEl); 
-infoEl.appendChild(imageEl1);
-infoEl.appendChild(imageEl2);
-infoEl.appendChild(imageEl3);
-infoEl.appendChild(imageEl4);
-infoEl.appendChild(imageEl5);
-infoEl.appendChild(imageEl6);
-infoEl.appendChild(imageEl7);
-infoEl.appendChild(imageEl8);
-infoEl.appendChild(imageEl9);
-infoEl.appendChild(imageEl10);
-infoEl.appendChild(imageEl11);
-infoEl.appendChild(imageEl12);
-infoEl.appendChild(imageEl13);
-infoEl.appendChild(imageEl14);
-infoEl.appendChild(imageEl15);
-infoEl.appendChild(imageEl16);
-infoEl.appendChild(imageEl17);
-infoEl.appendChild(imageEl18);
-infoEl.appendChild(imageEl19);
-infoEl.appendChild(imageEl20);
+gameScreen.appendChild(infoEl1);
+gameScreen.appendChild(infoEl2);
+gameScreen.appendChild(infoEl3);
+gameScreen.appendChild(infoEl4);
+gameScreen.appendChild(infoEl5);
+gameScreen.appendChild(infoEl6);
+gameScreen.appendChild(infoEl7);
+gameScreen.appendChild(infoEl8);
+gameScreen.appendChild(infoEl9);
+gameScreen.appendChild(infoEl10);
+gameScreen.appendChild(infoEl11);
+gameScreen.appendChild(infoEl12);
+gameScreen.appendChild(infoEl13);
+gameScreen.appendChild(infoEl14);
+gameScreen.appendChild(infoEl15);
+gameScreen.appendChild(infoEl16);
+gameScreen.appendChild(infoEl17);
+gameScreen.appendChild(infoEl18);
+gameScreen.appendChild(infoEl19);
+gameScreen.appendChild(infoEl20);
+
+infoEl1.appendChild(imageEl1);
+infoEl2.appendChild(imageEl2);
+infoEl3.appendChild(imageEl3);
+infoEl4.appendChild(imageEl4);
+infoEl5.appendChild(imageEl5);
+infoEl6.appendChild(imageEl6);
+infoEl7.appendChild(imageEl7);
+infoEl8.appendChild(imageEl8);
+infoEl9.appendChild(imageEl9);
+infoEl10.appendChild(imageEl10);
+infoEl11.appendChild(imageEl11);
+infoEl12.appendChild(imageEl12);
+infoEl13.appendChild(imageEl13);
+infoEl14.appendChild(imageEl14);
+infoEl15.appendChild(imageEl15);
+infoEl16.appendChild(imageEl16);
+infoEl17.appendChild(imageEl17);
+infoEl18.appendChild(imageEl18);
+infoEl19.appendChild(imageEl19);
+infoEl20.appendChild(imageEl20);
+
+infoEl1.className = "grid row-start-3 col-start-2"
+infoEl2.className = "grid row-start-1 col-start-2"
+infoEl3.className = "grid row-start-3 col-start-3"
+infoEl4.className = "grid row-start-1 col-start-3"
+infoEl5.className = "grid row-start-3 col-start-4"
+infoEl6.className = "grid row-start-1 col-start-4"
+infoEl7.className = "grid row-start-3 col-start-5"
+infoEl8.className = "grid row-start-1 col-start-5"
+infoEl9.className = "grid row-start-3 col-start-6"
+infoEl10.className = "grid row-start-1 col-start-6"
+infoEl11.className = "grid row-start-3 col-start-7"
+infoEl12.className = "grid row-start-1 col-start-7"
+infoEl13.className = "grid row-start-3 col-start-8"
+infoEl14.className = "grid row-start-1 col-start-8"
+infoEl15.className = "grid row-start-3 col-start-9"
+infoEl16.className = "grid row-start-1 col-start-9"
+infoEl17.className = "grid row-start-3 col-start-10"
+infoEl18.className = "grid row-start-1 col-start-10"
+infoEl19.className = "grid row-start-3 col-start-11"
+infoEl20.className = "grid row-start-1 col-start-11" 
 
 imageEl1.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
 imageEl2.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
@@ -321,4 +442,4 @@ function startGame() {
 
 getApi();
 
-setTimeout(gameLoop, 5000);
+setTimeout(populateCardImage, 5000);
