@@ -6,7 +6,7 @@ var forexRequest = new XMLHttpRequest();
 var currencyList = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'NZD', 'PLN', 'UAH'];
 var exchangeRatesNamesList = [];
 var exchangeRatesValuesList = [];
-var currentDefaultCurrency = 0;
+var currentDefaultCurrency = 500;
 
 forexRequest.open('GET', forexUrl);
 forexRequest.responseType = 'json';
@@ -40,7 +40,7 @@ function increaseDefaultCurrency(money){
 
 // function that resets the current default currency value to 0
 function resetDefaultCurrency() {
-  currentDefaultCurrency = 0;
+  currentDefaultCurrency = 500;
 }
 
 // ====[Card API]====
@@ -102,6 +102,13 @@ var currentRound = 0;
 var wins = 0;
 var losses = 0;
 var ties = 0;
+var betAmount = 0;
+
+// removes bet amount from total and adds to bet variable
+function makeBet(money) {
+  currentDefaultCurrency -= money;
+  betAmount += money;
+}
 
 // function that tallies the wins, losses, and ties
 function tallyResult(result) {
@@ -192,17 +199,27 @@ function playRound() {
   return determineResult(playerTotal, dealerTotal);
 }
 
-// determines the result for each round
+// determines the result for each round as well as handling cash results
 function determineResult(playerTotal, dealerTotal) {
   if (playerTotal > 21) {
+    betAmount = 0;
     return 2;
   } else if (playerTotal === 21) {
+    betAmount *= 2;
+    currentDefaultCurrency += betAmount;
+    betAmount = 0;
     return 1;
   } else if (playerTotal === dealerTotal) {
+    currentDefaultCurrency += betAmount;
+    betAmount = 0;
     return 3;
   } else if (playerTotal > dealerTotal) {
+    betAmount *= 2;
+    currentDefaultCurrency += betAmount;
+    betAmount = 0;
     return 1;
   } else {
+    betAmount = 0;
     return 2;
   }
 }
