@@ -1,6 +1,6 @@
-// ====[ JavaScript written by: Mateusz Zielinski and Nolan Bish ]====
+// ========[ JavaScript written by: Mateusz Zielinski and Nolan Bish ]========
 
-// Forex API
+// ====[Forex API]====
 var forexUrl = 'https://api.exchangerate.host/latest?base=USD';
 var forexRequest = new XMLHttpRequest();
 var currencyList = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'NZD', 'PLN', 'UAH'];
@@ -17,24 +17,33 @@ forexRequest.onload = function () {
   exchangeRatesValuesList = Object.values(forexResponse.rates);
 }
 
+// function to return a specific currency rate
 function getCurrencyRate(currency) {
   var position = exchangeRatesNamesList.indexOf(currency);
   return exchangeRatesValuesList[position];
 }
 
+// function that converts the default currency to the conversion currency for display purposes
 function convertCurrency(currency) {
   return currentDefaultCurrency * getCurrencyRate(currency);
 }
 
+// function that gets default rate (kinda pointless cause default rate should always be 1 but eh)
 function getDefaultRate() {
   return getCurrencyRate(currencyList[0]);
 }
 
+// function that adds to the current default currency value
+function increaseDefaultCurrency(money){
+  currentDefaultCurrency += money;
+}
+
+// function that resets the current default currency value to 0
 function resetDefaultCurrency() {
   currentDefaultCurrency = 0;
 }
 
-// Cards API
+// ====[Card API]====
 var deckUrl = 'https://www.deckofcardsapi.com/api/deck/new/?deck_count=6';
 var shuffleUrl = 'Error: ShuffleUrl not assigned';
 var drawUrl = 'Error: drawUrl not assigned';
@@ -45,6 +54,7 @@ var cards = ['UNASSIGNED-PH1', 'UNASSIGNED-DH1', 'UNASSIGNED-PH2', 'UNASSIGNED-D
   'UNASSIGNED-PH7', 'UNASSIGNED-DH7', 'UNASSIGNED-PH8', 'UNASSIGNED-DH8',
   'UNASSIGNED-PH9', 'UNASSIGNED-DH9', 'UNASSIGNED-PH10', 'UNASSIGNED-DH10'];
 
+// handles initial api request
 function getApi(request) {
   fetch(deckUrl)
     .then(function (response) {
@@ -59,6 +69,7 @@ function getApi(request) {
     })
 }
 
+// shuffles the cards
 function shuffleCards(deckID) {
   fetch(shuffleUrl)
     .then(function (response) {
@@ -70,6 +81,7 @@ function shuffleCards(deckID) {
     });
 }
 
+// populates the cards array
 function populateCards(deckID) {
   for (let i = 0; i < cards.length; i++) {
     fetch(drawUrl)
@@ -80,16 +92,18 @@ function populateCards(deckID) {
         deckID = data.deck_id
         //console.log(data);
         cards[i] = data.cards[0];
-        console.log(cards[i]);
       })
   }
 }
 
-// Game Logic
-var stop = false;
+// ====[Game Logic]====
+var maxRounds = 18;
+var currentRound = 0;
 var wins = 0;
 var losses = 0;
 var ties = 0;
+
+// function that tallies the wins, losses, and ties
 function tallyResult(result) {
   if (result === 1) {
     wins++;
@@ -102,14 +116,17 @@ function tallyResult(result) {
   }
 }
 
+// function that returns the cards value
 function getCardValue(card) {
   return card.value;
 }
 
+// function that returns the cards image
 function getCardImage(card) {
   return card.image;
 }
 
+// function for converting card values to integers
 function convertValue(value, player) {
   if (value === 'JACK' || value === 'QUEEN' || value === 'KING') {
     return 10;
@@ -120,7 +137,14 @@ function convertValue(value, player) {
   return parseInt(value);
 }
 
+// function for determining whether an ace should equal an 11 or a 1
 function aceLogic(player) {
+  var determinator = 0;
+  if (player === true) {
+
+  } else {
+
+  }
   /*if (player === true) {
     if (getCardValue(cards[0]) === 'ACE') {
       var determinator = 11 + parseInt(getCardValue(cards[2]));
@@ -137,9 +161,8 @@ function aceLogic(player) {
     } else (
       console.log('ERROR IN ACELOGIC: dealer')
     )
-  }
-  console.log('ACE determinator value: ' + determinator);*/
-  var determinator = 15;
+  } 
+  console.log('ACE determinator value: ' + determinator); */
   if (determinator <= 21) {
     return 11;
   } else {
@@ -147,73 +170,65 @@ function aceLogic(player) {
   }
 }
 
-/*
-here we will create local variables that store the suit and 
-value of each hand for each hand in the card array, then the program 
-will come to a conclusion as to whether the user won, lost, or drew
-*/
+// function for handling each round
 function playRound() {
-  console.log(cards);
-  var playerValue = convertValue(getCardValue(cards[0]), true);
-  var dealerValue = convertValue(getCardValue(cards[1]), false);
-  var playerValue2 = convertValue(getCardValue(cards[2]), true);
-  var dealerValue2 = convertValue(getCardValue(cards[3]), false);
-  var playerValue3 = convertValue(getCardValue(cards[4]), true);
-  var dealerValue3 = convertValue(getCardValue(cards[5]), false);
-  var playerValue4 = convertValue(getCardValue(cards[6]), true);
-  var dealerValue4 = convertValue(getCardValue(cards[7]), false);
-  var playerValue5 = convertValue(getCardValue(cards[8]), true);
-  var dealerValue5 = convertValue(getCardValue(cards[9]), false);
-  var playerValue6 = convertValue(getCardValue(cards[10]), true);
-  var dealerValue6 = convertValue(getCardValue(cards[11]), false);
-  var playerValue7 = convertValue(getCardValue(cards[12]), true);
-  var dealerValue7 = convertValue(getCardValue(cards[13]), false);
-  var playerValue8 = convertValue(getCardValue(cards[14]), true);
-  var dealerValue8 = convertValue(getCardValue(cards[15]), false);
-  var playerValue9 = convertValue(getCardValue(cards[16]), true);
-  var dealerValue9 = convertValue(getCardValue(cards[17]), false);
-  var playerValue10 = convertValue(getCardValue(cards[18]), true);
-  var dealerValue10 = convertValue(getCardValue(cards[19]), false);
-  console.log('playervalue: ' + playerValue);
-  console.log('dealervalue: ' + dealerValue);
-  console.log('playervalue2: ' + playerValue2);
-  console.log('dealervalue2: ' + dealerValue2);
-  console.log('playervalue3: ' + playerValue3);
-  console.log('dealervalue3: ' + dealerValue3);
-  console.log('playervalue4: ' + playerValue4);
-  console.log('dealervalue4: ' + dealerValue4);
-  console.log('playervalue5: ' + playerValue5);
-  console.log('dealervalue5: ' + dealerValue5);
-  console.log('playervalue6: ' + playerValue6);
-  console.log('dealervalue6: ' + dealerValue6);
-  console.log('playervalue7: ' + playerValue7);
-  console.log('dealervalue7: ' + dealerValue7);
-  console.log('playervalue8: ' + playerValue8);
-  console.log('dealervalue8: ' + dealerValue8);
-  console.log('playervalue9: ' + playerValue9);
-  console.log('dealervalue9: ' + dealerValue9);
-  console.log('playervalue10: ' + playerValue10);
-  console.log('dealervalue10: ' + dealerValue10);
-  var playerTotal = playerValue + playerValue2;
-  var dealerTotal = dealerValue + dealerValue2;
+  var playerHand = [];
+  var dealerHand = [];
+  var playerTotal = 0;
+  var dealerTotal = 0;
 
-  return 1;
+  for (let i = 0; i < cards.length; i += 2) {
+    playerHand.push(convertValue(getCardValue(cards[i]), true))
+  }
+  for (let i = 1; i < cards.length; i += 2) {
+    dealerHand.push(convertValue(getCardValue(cards[i]), false))
+  }
+
+  console.log(playerHand);
+  console.log(dealerHand);
+  playerTotal = playerHand[0] + playerHand[1];
+  dealerTotal = dealerHand[0] + dealerHand[1];
+
+  return determineResult(playerTotal, dealerTotal);
 }
 
-function gameLogic() {
-  while (stop === false) {
+// determines the result for each round
+function determineResult(playerTotal, dealerTotal) {
+  if (playerTotal > 21) {
+    return 2;
+  } else if (playerTotal === 21) {
+    return 1;
+  } else if (playerTotal === dealerTotal) {
+    return 3;
+  } else if (playerTotal > dealerTotal) {
+    return 1;
+  } else {
+    return 2;
+  }
+}
+
+// function for handling the overall game-loop
+function gameLoop() {
+  var nextRound = false;
+  if (currentRound < maxRounds) {
+    currentRound++;
+    //shuffleCards(deckID);
     tallyResult(playRound());
+    if (currentRound === maxRounds) {
+      console.log('The casino has kicked you out!');
+    }
+    gameLoop();
   }
 }
 
 function stopGame() {
-  stop = true;
+
 }
 
 function startGame() {
-  stop = false;
+
 }
 
 getApi();
 
-setTimeout(playRound, 5000);
+setTimeout(gameLoop, 5000);
