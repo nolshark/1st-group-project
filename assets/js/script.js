@@ -1,4 +1,3 @@
-// ========[ JavaScript written by: Mateusz Zielinski and Nolan Bish ]========
 
 // ====[Forex API]====
 var forexUrl = 'https://api.exchangerate.host/latest?base=USD';
