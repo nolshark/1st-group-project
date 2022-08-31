@@ -85,6 +85,84 @@ function populateCards(deckID) {
       })
   }
 }
+// ====[UI Logic]====
+var body = document.body; 
+var infoEl = document.createElement("div"); 
+var imageEl1 = document.createElement("img"); 
+var imageEl2 = document.createElement("img"); 
+var imageEl3 = document.createElement("img"); 
+var imageEl4 = document.createElement("img"); 
+var imageEl5 = document.createElement("img"); 
+var imageEl6 = document.createElement("img"); 
+var imageEl7 = document.createElement("img"); 
+var imageEl8 = document.createElement("img"); 
+var imageEl9 = document.createElement("img"); 
+var imageEl10 = document.createElement("img"); 
+var imageEl11 = document.createElement("img"); 
+var imageEl12 = document.createElement("img"); 
+var imageEl13 = document.createElement("img"); 
+var imageEl14 = document.createElement("img"); 
+var imageEl15 = document.createElement("img"); 
+var imageEl16 = document.createElement("img"); 
+var imageEl17 = document.createElement("img"); 
+var imageEl18 = document.createElement("img"); 
+var imageEl19 = document.createElement("img"); 
+var imageEl20= document.createElement("img"); 
+
+function getCardImage(cards) {
+  return cards.image;
+}
+
+// function that returns the cards image
+function getCardCode(cards) {
+  return cards.code;
+}
+
+function populateCardImage(code) {
+  
+body.appendChild(infoEl); 
+infoEl.appendChild(imageEl1);
+infoEl.appendChild(imageEl2);
+infoEl.appendChild(imageEl3);
+infoEl.appendChild(imageEl4);
+infoEl.appendChild(imageEl5);
+infoEl.appendChild(imageEl6);
+infoEl.appendChild(imageEl7);
+infoEl.appendChild(imageEl8);
+infoEl.appendChild(imageEl9);
+infoEl.appendChild(imageEl10);
+infoEl.appendChild(imageEl11);
+infoEl.appendChild(imageEl12);
+infoEl.appendChild(imageEl13);
+infoEl.appendChild(imageEl14);
+infoEl.appendChild(imageEl15);
+infoEl.appendChild(imageEl16);
+infoEl.appendChild(imageEl17);
+infoEl.appendChild(imageEl18);
+infoEl.appendChild(imageEl19);
+infoEl.appendChild(imageEl20);
+
+imageEl1.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
+imageEl2.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
+imageEl3.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
+imageEl4.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
+imageEl5.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png")
+imageEl6.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png")
+imageEl7.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png")
+imageEl8.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[7])+ ".png")
+imageEl9.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[8]) + ".png")
+imageEl10.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[9]) + ".png")
+imageEl11.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[10]) + ".png")
+imageEl12.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[11]) + ".png")
+imageEl13.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[12]) + ".png")
+imageEl14.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[13]) + ".png")
+imageEl15.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[14]) + ".png")
+imageEl16.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[15]) + ".png")
+imageEl17.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[16]) + ".png")
+imageEl18.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[17]) + ".png")
+imageEl19.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[18]) + ".png")
+imageEl20.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png")
+}
 
 // ====[Game Logic]====
 var maxRounds = 18;
@@ -116,11 +194,6 @@ function tallyResult(result) {
 // function that returns the cards value
 function getCardValue(cards) {
   return cards.value;
-}
-
-// function that returns the cards image
-function getCardCode(cards) {
-  return cards.image;
 }
 
 // function for converting card values to integers
