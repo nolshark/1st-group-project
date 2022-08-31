@@ -28,16 +28,6 @@ function convertCurrency(currency) {
   return currentDefaultCurrency * getCurrencyRate(currency);
 }
 
-// function that gets default rate (kinda pointless cause default rate should always be 1 but eh)
-function getDefaultRate() {
-  return getCurrencyRate(currencyList[0]);
-}
-
-// function that adds to the current default currency value
-function increaseDefaultCurrency(money){
-  currentDefaultCurrency += money;
-}
-
 // function that resets the current default currency value to 0
 function resetDefaultCurrency() {
   currentDefaultCurrency = 500;
@@ -204,6 +194,11 @@ function determineResult(playerTotal, dealerTotal) {
   if (playerTotal > 21) {
     betAmount = 0;
     return 2;
+  } else if (dealerTotal > 21) {
+    betAmount *= 2;
+    currentDefaultCurrency += betAmount;
+    betAmount = 0;
+    return 1;
   } else if (playerTotal === 21) {
     betAmount *= 2;
     currentDefaultCurrency += betAmount;
@@ -249,5 +244,3 @@ function startGame() {
 getApi();
 
 setTimeout(gameLoop, 5000);
-
-//comment
