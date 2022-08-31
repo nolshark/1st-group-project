@@ -249,3 +249,5 @@ function startGame() {
 getApi();
 
 setTimeout(gameLoop, 5000);
+
+//comment
