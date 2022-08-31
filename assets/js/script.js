@@ -25,7 +25,7 @@ function getCurrencyRate(currency) {
 
 // function that converts the default currency to the conversion currency for display purposes
 function convertCurrency(currency) {
-  return currentDefaultCurrency * getCurrencyRate(currency);
+  return parseInt(currentDefaultCurrency * getCurrencyRate(currency));
 }
 
 // function that resets the current default currency value to 0
@@ -134,6 +134,65 @@ function getCardImage(cards) {
   return cards.image;
 }
 
+var pUSD = document.createElement("p"); 
+var pEUR = document.createElement("p");
+var pJPY = document.createElement("p");
+var pGBP = document.createElement("p");
+var pAUD = document.createElement("p");
+var pCAD = document.createElement("p");
+var pCHF = document.createElement("p");
+var pNZD = document.createElement("p");
+var pPLN = document.createElement("p");
+var pUAH = document.createElement("p");
+
+var infoEl21 = document.createElement("div"); 
+var infoEl22 = document.createElement("div"); 
+var infoEl23 = document.createElement("div"); 
+var infoEl24 = document.createElement("div"); 
+var infoEl25 = document.createElement("div"); 
+var infoEl26 = document.createElement("div"); 
+var infoEl27 = document.createElement("div"); 
+var infoEl28 = document.createElement("div");
+var infoEl29 = document.createElement("div");  
+var infoEl30 = document.createElement("div"); 
+
+var currencyOptions = document.querySelector(".currency-options"); 
+
+function populateCurrencyScreen(){
+  currencyOptions.appendChild(infoEl21);
+  currencyOptions.appendChild(infoEl22);
+  currencyOptions.appendChild(infoEl23); 
+  currencyOptions.appendChild(infoEl24);
+  currencyOptions.appendChild(infoEl25);
+  currencyOptions.appendChild(infoEl26); 
+  currencyOptions.appendChild(infoEl27); 
+  currencyOptions.appendChild(infoEl28); 
+  currencyOptions.appendChild(infoEl29); 
+  currencyOptions.appendChild(infoEl30);
+  infoEl21.appendChild(pUSD); 
+  infoEl22.appendChild(pEUR); 
+  infoEl23.appendChild(pJPY); 
+  infoEl24.appendChild(pGBP); 
+  infoEl25.appendChild(pAUD); 
+  infoEl26.appendChild(pCAD); 
+  infoEl27.appendChild(pCHF); 
+  infoEl28.appendChild(pNZD); 
+  infoEl29.appendChild(pPLN); 
+  infoEl30.appendChild(pUAH); 
+  pUSD.textContent = currentDefaultCurrency; 
+  pEUR.textContent = convertCurrency(currencyList[1]); 
+  pJPY.textContent = convertCurrency(currencyList[2]); 
+  pGBP.textContent = convertCurrency(currencyList[3]); 
+  pAUD.textContent = convertCurrency(currencyList[4]); 
+  pCAD.textContent = convertCurrency(currencyList[5]); 
+  pCHF.textContent = convertCurrency(currencyList[6]); 
+  pNZD.textContent = convertCurrency(currencyList[7]); 
+  pPLN.textContent = convertCurrency(currencyList[8]); 
+  pUAH.textContent = convertCurrency(currencyList[9]); 
+}
+
+populateCurrencyScreen(); 
+
 // function that returns the cards image
 function getCardCode(cards) {
   return cards.code;
@@ -202,12 +261,9 @@ infoEl16.className = "grid row-start-1 col-start-9"
 infoEl17.className = "grid row-start-3 col-start-10"
 infoEl18.className = "grid row-start-1 col-start-10"
 infoEl19.className = "grid row-start-3 col-start-11"
-infoEl20.className = "grid row-start-1 col-start-11"
-
-//infoEl.setAttribute("style", "width: 50%; height: 50%; text-align: center;"); 
+infoEl20.className = "grid row-start-1 col-start-11" 
 
 imageEl1.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
-//imageEl1.setAttribute("style", "width: 15%; height: 5%;"); 
 imageEl2.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
 imageEl3.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
 imageEl4.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")

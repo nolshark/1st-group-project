@@ -19,7 +19,7 @@
         <section class="grid grid-rows-6 col-span-1 border-black border-2 border-solid info-screens ">
             <div class="grid row-span-4 content-center border-red-600 border-2 border-solid game-options">
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 hover:underline rules-button">Rules</button>
-                <p class="hidden text-4xl rules ">The aim of blackjack is to finish the game with a higher total than the dealer, without exceeding 21. Going over 21 is an automatic loss.</p>
+                <p class="hidden text-xl rules ">The aim of blackjack is to finish the game with a higher total than the dealer, without exceeding 21. Going over 21 is an automatic loss.</p>
                 <br>
                 <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 scores-button">High Scores</button>
                 <div class="hidden grid row-start-1 row-end-3 border-solid border-2 border-gray-200 high-scores">
@@ -31,16 +31,17 @@
                 <button class="hidden bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 quit-button">Quit Game</button>
             </div>
 
-            <div class="grid row-span-2 content-center border-gray-200 border-2 border-solid currency-options">
-                <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 currency-select">What's In Your Wallet?</button>
-                <div class="hidden currency-choice">
-                    <h2>What will you be playing with?</h2>
-                </div>
-                <button class="bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 translate-select">What's Your Fancy?</button>
-                <div class="hidden translate-choice">
-                    <h2>What would you like to see your money exchanged to?</h2>
-                </div>
-                <button class="hidden bg-slate-400 rounded-md border-solid border-2 border-black p-1 mx-1 currency-return">Return</button>
+            <div class="grid row-span-2 content-center grid-rows-4 grid-cols-3 border-gray-200 border-2 border-solid currency-options">
+                <div class="grid col-span-3 row-start-1 justify-center USD">USD</div>
+                <div class="grid row-start-2 col-start-1 EUR">EUR</div>
+                <div class="grid row-start-2 col-start-2 JPY">JPY</div>
+                <div class="grid row-start-2 col-start-3 GBP">GBP</div>
+                <div class="grid row-start-3 col-start-1 AUD">AUD</div>
+                <div class="grid row-start-3 col-start-2 CAD">CAD</div>
+                <div class="grid row-start-3 col-start-3 CHF">CHF</div>
+                <div class="grid row-start-4 col-start-1 NZD">NZD</div>
+                <div class="grid row-start-4 col-start-2 PLN">PLN</div>
+                <div class="grid row-start-4 col-start-3 UAH">UAH</div>
             </div>
         </section>
 

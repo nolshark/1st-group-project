@@ -60,40 +60,6 @@ optsReturn.addEventListener("click", () => {
     
   });
 
-//Select currency
-
-curSel.addEventListener("click", () => {
-    curSel.style.display = "none";
-    tranSel.style.display = "none";
-  
-    curReturn.style.display = "grid";
-    curChoice.style.display = "grid";
-    
-  });
-
-//Set translated currency choice
-
-tranSel.addEventListener("click", () => {
-    curSel.style.display = "none";
-    tranSel.style.display = "none";
-  
-    curReturn.style.display = "grid";
-    tranChoice.style.display = "grid";
-    
-  });
-
-//Return to Currency Options
-
-curReturn.addEventListener("click", () => {
-    curSel.style.display = "grid";
-    tranSel.style.display = "grid";
-  
-    curReturn.style.display = "none";
-    curChoice.style.display = "none";
-    tranChoice.style.display = "none";
-    
-  });
-
   //Quit Game
 
   quitButton.addEventListener("click", () => {
