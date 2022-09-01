@@ -178,16 +178,26 @@ function populateCurrencyScreen(){
   infoEl28.appendChild(pNZD); 
   infoEl29.appendChild(pPLN); 
   infoEl30.appendChild(pUAH); 
-  pUSD.textContent = currentDefaultCurrency; 
-  pEUR.textContent = convertCurrency(currencyList[1]); 
-  pJPY.textContent = convertCurrency(currencyList[2]); 
-  pGBP.textContent = convertCurrency(currencyList[3]); 
-  pAUD.textContent = convertCurrency(currencyList[4]); 
-  pCAD.textContent = convertCurrency(currencyList[5]); 
-  pCHF.textContent = convertCurrency(currencyList[6]); 
-  pNZD.textContent = convertCurrency(currencyList[7]); 
-  pPLN.textContent = convertCurrency(currencyList[8]); 
-  pUAH.textContent = convertCurrency(currencyList[9]); 
+  pUSD.textContent = currencyList[0] + " " + currentDefaultCurrency; 
+  pEUR.textContent = currencyList[1] + " " + convertCurrency(currencyList[1]); 
+  pJPY.textContent = currencyList[2] + " " + convertCurrency(currencyList[2]); 
+  pGBP.textContent = currencyList[3] + " " + convertCurrency(currencyList[3]); 
+  pAUD.textContent = currencyList[4] + " " + convertCurrency(currencyList[4]); 
+  pCAD.textContent = currencyList[5] + " " + convertCurrency(currencyList[5]); 
+  pCHF.textContent = currencyList[6] + " " + convertCurrency(currencyList[6]); 
+  pNZD.textContent = currencyList[7] + " " + convertCurrency(currencyList[7]); 
+  pPLN.textContent = currencyList[8] + " " + convertCurrency(currencyList[8]); 
+  pUAH.textContent = currencyList[9] + " " + convertCurrency(currencyList[9]); 
+  infoEl21.className = "grid row-start-1";
+  infoEl22.className = "grid row-start-2 col-start-1"; 
+  infoEl23.className = "grid row-start-2 col-start-2"; 
+  infoEl24.className = "grid row-start-2 col-start-3"; 
+  infoEl25.className = "grid row-start-3 col-start-1"; 
+  infoEl26.className = "grid row-start-3 col-start-2"; 
+  infoEl27.className = "grid row-start-3 col-start-3"; 
+  infoEl28.className = "grid row-start-4 col-start-1"; 
+  infoEl29.className = "grid row-start-4 col-start-2"; 
+  infoEl30.className = "grid row-start-4 col-start-3"; 
 }
 
 populateCurrencyScreen(); 
@@ -241,26 +251,26 @@ infoEl18.appendChild(imageEl18);
 infoEl19.appendChild(imageEl19);
 infoEl20.appendChild(imageEl20);
 
-infoEl1.className = "grid row-start-3 col-start-2"
-infoEl2.className = "grid row-start-1 col-start-2"
-infoEl3.className = "grid row-start-3 col-start-3"
-infoEl4.className = "grid row-start-1 col-start-3"
-infoEl5.className = "grid row-start-3 col-start-4"
-infoEl6.className = "grid row-start-1 col-start-4"
-infoEl7.className = "grid row-start-3 col-start-5"
-infoEl8.className = "grid row-start-1 col-start-5"
-infoEl9.className = "grid row-start-3 col-start-6"
-infoEl10.className = "grid row-start-1 col-start-6"
-infoEl11.className = "grid row-start-3 col-start-7"
-infoEl12.className = "grid row-start-1 col-start-7"
-infoEl13.className = "grid row-start-3 col-start-8"
-infoEl14.className = "grid row-start-1 col-start-8"
-infoEl15.className = "grid row-start-3 col-start-9"
-infoEl16.className = "grid row-start-1 col-start-9"
-infoEl17.className = "grid row-start-3 col-start-10"
-infoEl18.className = "grid row-start-1 col-start-10"
-infoEl19.className = "grid row-start-3 col-start-11"
-infoEl20.className = "grid row-start-1 col-start-11" 
+infoEl1.className = "hidden grid row-start-3 col-start-2 p-1"
+infoEl2.className = "hidden grid row-start-1 col-start-2 d-1"
+infoEl3.className = "hidden grid row-start-3 col-start-3 p-2"
+infoEl4.className = "hidden grid row-start-1 col-start-3 d-2"
+infoEl5.className = "hidden grid row-start-3 col-start-4 p-3"
+infoEl6.className = "hidden grid row-start-1 col-start-4 d-3"
+infoEl7.className = "hidden grid row-start-3 col-start-5 p-4"
+infoEl8.className = "hidden grid row-start-1 col-start-5 d-4"
+infoEl9.className = "hidden grid row-start-3 col-start-6 p-5"
+infoEl10.className = "hidden grid row-start-1 col-start-6 d-5"
+infoEl11.className = "hidden grid row-start-3 col-start-7 p-6"
+infoEl12.className = "hidden grid row-start-1 col-start-7 d-6"
+infoEl13.className = "hidden grid row-start-3 col-start-8 p-7"
+infoEl14.className = "hidden grid row-start-1 col-start-8 d-7"
+infoEl15.className = "hidden grid row-start-3 col-start-9 p-8"
+infoEl16.className = "hidden grid row-start-1 col-start-9 d-8"
+infoEl17.className = "hidden grid row-start-3 col-start-10 p-9"
+infoEl18.className = "hidden grid row-start-1 col-start-10 d-9"
+infoEl19.className = "hidden grid row-start-3 col-start-11 p-10"
+infoEl20.className = "hidden grid row-start-1 col-start-11 d-10" 
 
 imageEl1.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
 imageEl2.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
@@ -442,3 +452,4 @@ function startGame() {
 getApi();
 
 setTimeout(populateCardImage, 5000);
+setTimeout(populateCurrencyScreen, 5000);
