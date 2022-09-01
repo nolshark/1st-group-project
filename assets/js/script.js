@@ -100,26 +100,8 @@ var curChoice = document.querySelector(".currency-choice");
 var tranChoice = document.querySelector(".translate-choice");
 var hitButton = document.querySelector(".hit-button");
 var holdButton = document.querySelector(".hold-button");
-var p1 = document.querySelector(".p-1");
-var d1 = document.querySelector(".d-1");
-var p2 = document.querySelector(".p-2");
-var d2 = document.querySelector(".d-2");
-var p3 = document.querySelector(".p-3");
-var d3 = document.querySelector(".d-3");
-var p4 = document.querySelector(".p-4");
-var d4 = document.querySelector(".d-4");
-var p5 = document.querySelector(".p-5");
-var d5 = document.querySelector(".d-5");
-var p6 = document.querySelector(".p-6");
-var d6 = document.querySelector(".d-6");
-var p7 = document.querySelector(".p-7");
-var d7 = document.querySelector(".d-7");
-var p8 = document.querySelector(".p-8");
-var d8 = document.querySelector(".d-8");
-var p9 = document.querySelector(".p-9");
-var d9 = document.querySelector(".d-9");
-var p10 = document.querySelector(".p-10");
-var d10 = document.querySelector(".d-10");
+var playerInc = 4; 
+var dealerInc = 5; 
 
 var body = document.body;
 var infoEl1 = document.createElement("div");
@@ -243,10 +225,10 @@ function startGame() {
   quitButton.style.display = "grid";
   hitButton.style.display = "grid";
   holdButton.style.display = "grid";
-  p1.style.display = "grid";
-  d1.style.display = "grid";
-  p2.style.display = "grid";
-  d2.style.display = "grid";
+  infoEl1.className = "grid row-start-3 col-start-2"
+  infoEl2.className = "grid row-start-1 col-start-2"
+  infoEl3.className = "grid row-start-3 col-start-3"
+  infoEl4.className = "grid row-start-1 col-start-3"
 }
 
 startButton.addEventListener("click", startGame);
@@ -290,6 +272,9 @@ quitButton.addEventListener("click", () => {
   holdButton.style.display = "none";
 });
 
+hitButton.addEventListener("click", () => {
+playerInc += 2; 
+}); 
 // function that returns the cards image
 function getCardCode(cards) {
   return cards.code;
@@ -339,31 +324,33 @@ function populateCardImage(code) {
   infoEl19.appendChild(imageEl19);
   infoEl20.appendChild(imageEl20);
 
-  infoEl1.className = "hidden grid row-start-3 col-start-2 p-1"
-  infoEl2.className = "hidden grid row-start-1 col-start-2 d-1"
-  infoEl3.className = "hidden grid row-start-3 col-start-3 p-2"
-  infoEl4.className = "hidden grid row-start-1 col-start-3 d-2"
-  infoEl5.className = "hidden grid row-start-3 col-start-4 p-3"
-  infoEl6.className = "hidden grid row-start-1 col-start-4 d-3"
-  infoEl7.className = "hidden grid row-start-3 col-start-5 p-4"
-  infoEl8.className = "hidden grid row-start-1 col-start-5 d-4"
-  infoEl9.className = "hidden grid row-start-3 col-start-6 p-5"
-  infoEl10.className = "hidden grid row-start-1 col-start-6 d-5"
-  infoEl11.className = "hidden grid row-start-3 col-start-7 p-6"
-  infoEl12.className = "hidden grid row-start-1 col-start-7 d-6"
-  infoEl13.className = "hidden grid row-start-3 col-start-8 p-7"
-  infoEl14.className = "hidden grid row-start-1 col-start-8 d-7"
-  infoEl15.className = "hidden grid row-start-3 col-start-9 p-8"
-  infoEl16.className = "hidden grid row-start-1 col-start-9 d-8"
-  infoEl17.className = "hidden grid row-start-3 col-start-10 p-9"
-  infoEl18.className = "hidden grid row-start-1 col-start-10 d-9"
-  infoEl19.className = "hidden grid row-start-3 col-start-11 p-10"
-  infoEl20.className = "hidden grid row-start-1 col-start-11 d-10"
+  infoEl1.className = "hidden grid row-start-3 col-start-2"
+  infoEl2.className = "hidden grid row-start-1 col-start-2"
+  infoEl3.className = "hidden grid row-start-3 col-start-3"
+  infoEl4.className = "hidden grid row-start-1 col-start-3"
+  infoEl5.className = "hidden grid row-start-3 col-start-4"
+  infoEl6.className = "hidden grid row-start-1 col-start-4"
+  infoEl7.className = "hidden grid row-start-3 col-start-5"
+  infoEl8.className = "hidden grid row-start-1 col-start-5"
+  infoEl9.className = "hidden grid row-start-3 col-start-6"
+  infoEl10.className = "hidden grid row-start-1 col-start-6"
+  infoEl11.className = "hidden grid row-start-3 col-start-7"
+  infoEl12.className = "hidden grid row-start-1 col-start-7"
+  infoEl13.className = "hidden grid row-start-3 col-start-8"
+  infoEl14.className = "hidden grid row-start-1 col-start-8"
+  infoEl15.className = "hidden grid row-start-3 col-start-9"
+  infoEl16.className = "hidden grid row-start-1 col-start-9"
+  infoEl17.className = "hidden grid row-start-3 col-start-10"
+  infoEl18.className = "hidden grid row-start-1 col-start-10"
+  infoEl19.className = "hidden grid row-start-3 col-start-11"
+  infoEl20.className = "hidden grid row-start-1 col-start-11"
 
   imageEl1.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
   imageEl2.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
   imageEl3.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
-  imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
+  //imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
+ //("src","https://www.deckofcardsapi.com/static/img/back.png")
+  imageEl4.setAttribute("src","https://www.deckofcardsapi.com/static/img/back.png")
   imageEl5.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png")
   imageEl6.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png")
   imageEl7.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png")
