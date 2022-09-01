@@ -11,6 +11,7 @@ In this project we created a Blackjack game utilizing a deck of cards and Forex 
 
 Screen Shot:
 
-C:\Users\ikeys\OneDrive\Desktop\blackjack-game\screen shot pic.PNG
+![image](https://user-images.githubusercontent.com/107436206/187999321-e472d07f-543e-4187-b680-aacaa7affbc7.png)
+
 
 Live URL: https://nolshark.github.io/blackjack-game/
