@@ -85,8 +85,44 @@ function populateCards(deckID) {
   }
 }
 // ====[UI Logic]====
-var body = document.body; 
-var infoEl1= document.createElement("div"); 
+var startButton = document.querySelector(".start-button");
+var rulesButton = document.querySelector(".rules-button");
+var scoresButton = document.querySelector(".scores-button");
+var optsReturn = document.querySelector(".options-return");
+var curReturn = document.querySelector(".currency-return");
+var quitButton = document.querySelector(".quit-button");
+var infoScreens = document.querySelector(".info-screens");
+var rules = document.querySelector(".rules");
+var highScores = document.querySelector(".high-scores");
+var curSel = document.querySelector(".currency-select");
+var tranSel = document.querySelector(".translate-select");
+var curChoice = document.querySelector(".currency-choice");
+var tranChoice = document.querySelector(".translate-choice");
+var hitButton = document.querySelector(".hit-button");
+var holdButton = document.querySelector(".hold-button");
+var p1 = document.querySelector(".p-1");
+var d1 = document.querySelector(".d-1");
+var p2 = document.querySelector(".p-2");
+var d2 = document.querySelector(".d-2");
+var p3 = document.querySelector(".p-3");
+var d3 = document.querySelector(".d-3");
+var p4 = document.querySelector(".p-4");
+var d4 = document.querySelector(".d-4");
+var p5 = document.querySelector(".p-5");
+var d5 = document.querySelector(".d-5");
+var p6 = document.querySelector(".p-6");
+var d6 = document.querySelector(".d-6");
+var p7 = document.querySelector(".p-7");
+var d7 = document.querySelector(".d-7");
+var p8 = document.querySelector(".p-8");
+var d8 = document.querySelector(".d-8");
+var p9 = document.querySelector(".p-9");
+var d9 = document.querySelector(".d-9");
+var p10 = document.querySelector(".p-10");
+var d10 = document.querySelector(".d-10");
+
+var body = document.body;
+var infoEl1 = document.createElement("div");
 var infoEl2 = document.createElement("div");
 var infoEl3 = document.createElement("div");
 var infoEl4 = document.createElement("div");
@@ -107,33 +143,33 @@ var infoEl18 = document.createElement("div");
 var infoEl19 = document.createElement("div");
 var infoEl20 = document.createElement("div");
 
-var imageEl1 = document.createElement("img"); 
-var imageEl2 = document.createElement("img"); 
-var imageEl3 = document.createElement("img"); 
-var imageEl4 = document.createElement("img"); 
-var imageEl5 = document.createElement("img"); 
-var imageEl6 = document.createElement("img"); 
-var imageEl7 = document.createElement("img"); 
-var imageEl8 = document.createElement("img"); 
-var imageEl9 = document.createElement("img"); 
-var imageEl10 = document.createElement("img"); 
-var imageEl11 = document.createElement("img"); 
-var imageEl12 = document.createElement("img"); 
-var imageEl13 = document.createElement("img"); 
-var imageEl14 = document.createElement("img"); 
-var imageEl15 = document.createElement("img"); 
-var imageEl16 = document.createElement("img"); 
-var imageEl17 = document.createElement("img"); 
-var imageEl18 = document.createElement("img"); 
-var imageEl19 = document.createElement("img"); 
-var imageEl20 = document.createElement("img"); 
-var gameScreen = document.querySelector(".game-screen"); 
+var imageEl1 = document.createElement("img");
+var imageEl2 = document.createElement("img");
+var imageEl3 = document.createElement("img");
+var imageEl4 = document.createElement("img");
+var imageEl5 = document.createElement("img");
+var imageEl6 = document.createElement("img");
+var imageEl7 = document.createElement("img");
+var imageEl8 = document.createElement("img");
+var imageEl9 = document.createElement("img");
+var imageEl10 = document.createElement("img");
+var imageEl11 = document.createElement("img");
+var imageEl12 = document.createElement("img");
+var imageEl13 = document.createElement("img");
+var imageEl14 = document.createElement("img");
+var imageEl15 = document.createElement("img");
+var imageEl16 = document.createElement("img");
+var imageEl17 = document.createElement("img");
+var imageEl18 = document.createElement("img");
+var imageEl19 = document.createElement("img");
+var imageEl20 = document.createElement("img");
+var gameScreen = document.querySelector(".game-screen");
 
 function getCardImage(cards) {
   return cards.image;
 }
 
-var pUSD = document.createElement("p"); 
+var pUSD = document.createElement("p");
 var pEUR = document.createElement("p");
 var pJPY = document.createElement("p");
 var pGBP = document.createElement("p");
@@ -144,63 +180,115 @@ var pNZD = document.createElement("p");
 var pPLN = document.createElement("p");
 var pUAH = document.createElement("p");
 
-var infoEl21 = document.createElement("div"); 
-var infoEl22 = document.createElement("div"); 
-var infoEl23 = document.createElement("div"); 
-var infoEl24 = document.createElement("div"); 
-var infoEl25 = document.createElement("div"); 
-var infoEl26 = document.createElement("div"); 
-var infoEl27 = document.createElement("div"); 
+var infoEl21 = document.createElement("div");
+var infoEl22 = document.createElement("div");
+var infoEl23 = document.createElement("div");
+var infoEl24 = document.createElement("div");
+var infoEl25 = document.createElement("div");
+var infoEl26 = document.createElement("div");
+var infoEl27 = document.createElement("div");
 var infoEl28 = document.createElement("div");
-var infoEl29 = document.createElement("div");  
-var infoEl30 = document.createElement("div"); 
+var infoEl29 = document.createElement("div");
+var infoEl30 = document.createElement("div");
 
-var currencyOptions = document.querySelector(".currency-options"); 
+var currencyOptions = document.querySelector(".currency-options");
 
-function populateCurrencyScreen(){
+function populateCurrencyScreen() {
   currencyOptions.appendChild(infoEl21);
   currencyOptions.appendChild(infoEl22);
-  currencyOptions.appendChild(infoEl23); 
+  currencyOptions.appendChild(infoEl23);
   currencyOptions.appendChild(infoEl24);
   currencyOptions.appendChild(infoEl25);
-  currencyOptions.appendChild(infoEl26); 
-  currencyOptions.appendChild(infoEl27); 
-  currencyOptions.appendChild(infoEl28); 
-  currencyOptions.appendChild(infoEl29); 
+  currencyOptions.appendChild(infoEl26);
+  currencyOptions.appendChild(infoEl27);
+  currencyOptions.appendChild(infoEl28);
+  currencyOptions.appendChild(infoEl29);
   currencyOptions.appendChild(infoEl30);
-  infoEl21.appendChild(pUSD); 
-  infoEl22.appendChild(pEUR); 
-  infoEl23.appendChild(pJPY); 
-  infoEl24.appendChild(pGBP); 
-  infoEl25.appendChild(pAUD); 
-  infoEl26.appendChild(pCAD); 
-  infoEl27.appendChild(pCHF); 
-  infoEl28.appendChild(pNZD); 
-  infoEl29.appendChild(pPLN); 
-  infoEl30.appendChild(pUAH); 
-  pUSD.textContent = currencyList[0] + " " + currentDefaultCurrency; 
-  pEUR.textContent = currencyList[1] + " " + convertCurrency(currencyList[1]); 
-  pJPY.textContent = currencyList[2] + " " + convertCurrency(currencyList[2]); 
-  pGBP.textContent = currencyList[3] + " " + convertCurrency(currencyList[3]); 
-  pAUD.textContent = currencyList[4] + " " + convertCurrency(currencyList[4]); 
-  pCAD.textContent = currencyList[5] + " " + convertCurrency(currencyList[5]); 
-  pCHF.textContent = currencyList[6] + " " + convertCurrency(currencyList[6]); 
-  pNZD.textContent = currencyList[7] + " " + convertCurrency(currencyList[7]); 
-  pPLN.textContent = currencyList[8] + " " + convertCurrency(currencyList[8]); 
-  pUAH.textContent = currencyList[9] + " " + convertCurrency(currencyList[9]); 
+  infoEl21.appendChild(pUSD);
+  infoEl22.appendChild(pEUR);
+  infoEl23.appendChild(pJPY);
+  infoEl24.appendChild(pGBP);
+  infoEl25.appendChild(pAUD);
+  infoEl26.appendChild(pCAD);
+  infoEl27.appendChild(pCHF);
+  infoEl28.appendChild(pNZD);
+  infoEl29.appendChild(pPLN);
+  infoEl30.appendChild(pUAH);
+  pUSD.textContent = currencyList[0] + " " + currentDefaultCurrency;
+  pEUR.textContent = currencyList[1] + " " + convertCurrency(currencyList[1]);
+  pJPY.textContent = currencyList[2] + " " + convertCurrency(currencyList[2]);
+  pGBP.textContent = currencyList[3] + " " + convertCurrency(currencyList[3]);
+  pAUD.textContent = currencyList[4] + " " + convertCurrency(currencyList[4]);
+  pCAD.textContent = currencyList[5] + " " + convertCurrency(currencyList[5]);
+  pCHF.textContent = currencyList[6] + " " + convertCurrency(currencyList[6]);
+  pNZD.textContent = currencyList[7] + " " + convertCurrency(currencyList[7]);
+  pPLN.textContent = currencyList[8] + " " + convertCurrency(currencyList[8]);
+  pUAH.textContent = currencyList[9] + " " + convertCurrency(currencyList[9]);
   infoEl21.className = "grid row-start-1";
-  infoEl22.className = "grid row-start-2 col-start-1"; 
-  infoEl23.className = "grid row-start-2 col-start-2"; 
-  infoEl24.className = "grid row-start-2 col-start-3"; 
-  infoEl25.className = "grid row-start-3 col-start-1"; 
-  infoEl26.className = "grid row-start-3 col-start-2"; 
-  infoEl27.className = "grid row-start-3 col-start-3"; 
-  infoEl28.className = "grid row-start-4 col-start-1"; 
-  infoEl29.className = "grid row-start-4 col-start-2"; 
-  infoEl30.className = "grid row-start-4 col-start-3"; 
+  infoEl22.className = "grid row-start-2 col-start-1";
+  infoEl23.className = "grid row-start-2 col-start-2";
+  infoEl24.className = "grid row-start-2 col-start-3";
+  infoEl25.className = "grid row-start-3 col-start-1";
+  infoEl26.className = "grid row-start-3 col-start-2";
+  infoEl27.className = "grid row-start-3 col-start-3";
+  infoEl28.className = "grid row-start-4 col-start-1";
+  infoEl29.className = "grid row-start-4 col-start-2";
+  infoEl30.className = "grid row-start-4 col-start-3";
 }
 
-populateCurrencyScreen(); 
+// Start Game
+function startGame() {
+  startButton.style.display = "none";
+
+  quitButton.style.display = "grid";
+  hitButton.style.display = "grid";
+  holdButton.style.display = "grid";
+  p1.style.display = "grid";
+  d1.style.display = "grid";
+  p2.style.display = "grid";
+  d2.style.display = "grid";
+}
+
+startButton.addEventListener("click", startGame);
+
+// Get rules 
+rulesButton.addEventListener("click", () => {
+  rulesButton.style.display = "none";
+  scoresButton.style.display = "none";
+
+  optsReturn.style.display = "grid";
+  rules.style.display = "grid";
+
+});
+
+// Get high scores
+scoresButton.addEventListener("click", () => {
+  rulesButton.style.display = "none";
+  scoresButton.style.display = "none";
+
+  optsReturn.style.display = "grid";
+  highScores.style.display = "grid";
+});
+
+// Return to options screen
+optsReturn.addEventListener("click", () => {
+  rulesButton.style.display = "grid";
+  scoresButton.style.display = "grid";
+
+  optsReturn.style.display = "none";
+  rules.style.display = "none";
+  highScores.style.display = "none";
+
+});
+
+// Quit Game
+quitButton.addEventListener("click", () => {
+  startButton.style.display = "grid";
+
+  quitButton.style.display = "none";
+  hitButton.style.display = "none";
+  holdButton.style.display = "none";
+});
 
 // function that returns the cards image
 function getCardCode(cards) {
@@ -208,90 +296,90 @@ function getCardCode(cards) {
 }
 
 function populateCardImage(code) {
-  
-gameScreen.appendChild(infoEl1);
-gameScreen.appendChild(infoEl2);
-gameScreen.appendChild(infoEl3);
-gameScreen.appendChild(infoEl4);
-gameScreen.appendChild(infoEl5);
-gameScreen.appendChild(infoEl6);
-gameScreen.appendChild(infoEl7);
-gameScreen.appendChild(infoEl8);
-gameScreen.appendChild(infoEl9);
-gameScreen.appendChild(infoEl10);
-gameScreen.appendChild(infoEl11);
-gameScreen.appendChild(infoEl12);
-gameScreen.appendChild(infoEl13);
-gameScreen.appendChild(infoEl14);
-gameScreen.appendChild(infoEl15);
-gameScreen.appendChild(infoEl16);
-gameScreen.appendChild(infoEl17);
-gameScreen.appendChild(infoEl18);
-gameScreen.appendChild(infoEl19);
-gameScreen.appendChild(infoEl20);
 
-infoEl1.appendChild(imageEl1);
-infoEl2.appendChild(imageEl2);
-infoEl3.appendChild(imageEl3);
-infoEl4.appendChild(imageEl4);
-infoEl5.appendChild(imageEl5);
-infoEl6.appendChild(imageEl6);
-infoEl7.appendChild(imageEl7);
-infoEl8.appendChild(imageEl8);
-infoEl9.appendChild(imageEl9);
-infoEl10.appendChild(imageEl10);
-infoEl11.appendChild(imageEl11);
-infoEl12.appendChild(imageEl12);
-infoEl13.appendChild(imageEl13);
-infoEl14.appendChild(imageEl14);
-infoEl15.appendChild(imageEl15);
-infoEl16.appendChild(imageEl16);
-infoEl17.appendChild(imageEl17);
-infoEl18.appendChild(imageEl18);
-infoEl19.appendChild(imageEl19);
-infoEl20.appendChild(imageEl20);
+  gameScreen.appendChild(infoEl1);
+  gameScreen.appendChild(infoEl2);
+  gameScreen.appendChild(infoEl3);
+  gameScreen.appendChild(infoEl4);
+  gameScreen.appendChild(infoEl5);
+  gameScreen.appendChild(infoEl6);
+  gameScreen.appendChild(infoEl7);
+  gameScreen.appendChild(infoEl8);
+  gameScreen.appendChild(infoEl9);
+  gameScreen.appendChild(infoEl10);
+  gameScreen.appendChild(infoEl11);
+  gameScreen.appendChild(infoEl12);
+  gameScreen.appendChild(infoEl13);
+  gameScreen.appendChild(infoEl14);
+  gameScreen.appendChild(infoEl15);
+  gameScreen.appendChild(infoEl16);
+  gameScreen.appendChild(infoEl17);
+  gameScreen.appendChild(infoEl18);
+  gameScreen.appendChild(infoEl19);
+  gameScreen.appendChild(infoEl20);
 
-infoEl1.className = "hidden grid row-start-3 col-start-2 p-1"
-infoEl2.className = "hidden grid row-start-1 col-start-2 d-1"
-infoEl3.className = "hidden grid row-start-3 col-start-3 p-2"
-infoEl4.className = "hidden grid row-start-1 col-start-3 d-2"
-infoEl5.className = "hidden grid row-start-3 col-start-4 p-3"
-infoEl6.className = "hidden grid row-start-1 col-start-4 d-3"
-infoEl7.className = "hidden grid row-start-3 col-start-5 p-4"
-infoEl8.className = "hidden grid row-start-1 col-start-5 d-4"
-infoEl9.className = "hidden grid row-start-3 col-start-6 p-5"
-infoEl10.className = "hidden grid row-start-1 col-start-6 d-5"
-infoEl11.className = "hidden grid row-start-3 col-start-7 p-6"
-infoEl12.className = "hidden grid row-start-1 col-start-7 d-6"
-infoEl13.className = "hidden grid row-start-3 col-start-8 p-7"
-infoEl14.className = "hidden grid row-start-1 col-start-8 d-7"
-infoEl15.className = "hidden grid row-start-3 col-start-9 p-8"
-infoEl16.className = "hidden grid row-start-1 col-start-9 d-8"
-infoEl17.className = "hidden grid row-start-3 col-start-10 p-9"
-infoEl18.className = "hidden grid row-start-1 col-start-10 d-9"
-infoEl19.className = "hidden grid row-start-3 col-start-11 p-10"
-infoEl20.className = "hidden grid row-start-1 col-start-11 d-10" 
+  infoEl1.appendChild(imageEl1);
+  infoEl2.appendChild(imageEl2);
+  infoEl3.appendChild(imageEl3);
+  infoEl4.appendChild(imageEl4);
+  infoEl5.appendChild(imageEl5);
+  infoEl6.appendChild(imageEl6);
+  infoEl7.appendChild(imageEl7);
+  infoEl8.appendChild(imageEl8);
+  infoEl9.appendChild(imageEl9);
+  infoEl10.appendChild(imageEl10);
+  infoEl11.appendChild(imageEl11);
+  infoEl12.appendChild(imageEl12);
+  infoEl13.appendChild(imageEl13);
+  infoEl14.appendChild(imageEl14);
+  infoEl15.appendChild(imageEl15);
+  infoEl16.appendChild(imageEl16);
+  infoEl17.appendChild(imageEl17);
+  infoEl18.appendChild(imageEl18);
+  infoEl19.appendChild(imageEl19);
+  infoEl20.appendChild(imageEl20);
 
-imageEl1.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
-imageEl2.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
-imageEl3.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
-imageEl4.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
-imageEl5.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png")
-imageEl6.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png")
-imageEl7.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png")
-imageEl8.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[7])+ ".png")
-imageEl9.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[8]) + ".png")
-imageEl10.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[9]) + ".png")
-imageEl11.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[10]) + ".png")
-imageEl12.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[11]) + ".png")
-imageEl13.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[12]) + ".png")
-imageEl14.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[13]) + ".png")
-imageEl15.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[14]) + ".png")
-imageEl16.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[15]) + ".png")
-imageEl17.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[16]) + ".png")
-imageEl18.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[17]) + ".png")
-imageEl19.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[18]) + ".png")
-imageEl20.setAttribute("src","https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png")
+  infoEl1.className = "hidden grid row-start-3 col-start-2 p-1"
+  infoEl2.className = "hidden grid row-start-1 col-start-2 d-1"
+  infoEl3.className = "hidden grid row-start-3 col-start-3 p-2"
+  infoEl4.className = "hidden grid row-start-1 col-start-3 d-2"
+  infoEl5.className = "hidden grid row-start-3 col-start-4 p-3"
+  infoEl6.className = "hidden grid row-start-1 col-start-4 d-3"
+  infoEl7.className = "hidden grid row-start-3 col-start-5 p-4"
+  infoEl8.className = "hidden grid row-start-1 col-start-5 d-4"
+  infoEl9.className = "hidden grid row-start-3 col-start-6 p-5"
+  infoEl10.className = "hidden grid row-start-1 col-start-6 d-5"
+  infoEl11.className = "hidden grid row-start-3 col-start-7 p-6"
+  infoEl12.className = "hidden grid row-start-1 col-start-7 d-6"
+  infoEl13.className = "hidden grid row-start-3 col-start-8 p-7"
+  infoEl14.className = "hidden grid row-start-1 col-start-8 d-7"
+  infoEl15.className = "hidden grid row-start-3 col-start-9 p-8"
+  infoEl16.className = "hidden grid row-start-1 col-start-9 d-8"
+  infoEl17.className = "hidden grid row-start-3 col-start-10 p-9"
+  infoEl18.className = "hidden grid row-start-1 col-start-10 d-9"
+  infoEl19.className = "hidden grid row-start-3 col-start-11 p-10"
+  infoEl20.className = "hidden grid row-start-1 col-start-11 d-10"
+
+  imageEl1.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
+  imageEl2.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
+  imageEl3.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
+  imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
+  imageEl5.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png")
+  imageEl6.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png")
+  imageEl7.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png")
+  imageEl8.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[7]) + ".png")
+  imageEl9.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[8]) + ".png")
+  imageEl10.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[9]) + ".png")
+  imageEl11.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[10]) + ".png")
+  imageEl12.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[11]) + ".png")
+  imageEl13.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[12]) + ".png")
+  imageEl14.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[13]) + ".png")
+  imageEl15.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[14]) + ".png")
+  imageEl16.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[15]) + ".png")
+  imageEl17.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[16]) + ".png")
+  imageEl18.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[17]) + ".png")
+  imageEl19.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[18]) + ".png")
+  imageEl20.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png")
 }
 
 // ====[Game Logic]====
@@ -370,9 +458,9 @@ function aceLogic(player) {
   }
 }
 
-function displayCardImage(){
+function displayCardImage() {
   getCardCode(cards);
-  var img = $("<img>").attr("src","https://www.deckofcardsapi.com/static/img/" + cards.code[0] + ".png")
+  var img = $("<img>").attr("src", "https://www.deckofcardsapi.com/static/img/" + cards.code[0] + ".png")
 }
 
 // function for handling each round
@@ -439,14 +527,6 @@ function gameLoop() {
     }
     gameLoop();
   }
-}
-
-function stopGame() {
-
-}
-
-function startGame() {
-
 }
 
 getApi();
