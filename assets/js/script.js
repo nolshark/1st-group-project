@@ -1,5 +1,4 @@
-
-// ====[Forex API]====
+// ================================[Forex API]================================
 var forexUrl = 'https://api.exchangerate.host/latest?base=USD';
 var forexRequest = new XMLHttpRequest();
 var currencyList = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'NZD', 'PLN', 'UAH'];
@@ -32,7 +31,7 @@ function resetDefaultCurrency() {
   currentDefaultCurrency = 500;
 }
 
-// ====[Card API]====
+// ================================[Card API]================================
 var deckUrl = 'https://www.deckofcardsapi.com/api/deck/new/?deck_count=6';
 var shuffleUrl = 'Error: ShuffleUrl not assigned';
 var drawUrl = 'Error: drawUrl not assigned';
@@ -84,7 +83,7 @@ function populateCards(deckID) {
       })
   }
 }
-// ====[UI Logic]====
+// ================================[UI Logic]================================
 var startButton = document.querySelector(".start-button");
 var rulesButton = document.querySelector(".rules-button");
 var scoresButton = document.querySelector(".scores-button");
@@ -101,8 +100,6 @@ var curChoice = document.querySelector(".currency-choice");
 var tranChoice = document.querySelector(".translate-choice");
 var hitButton = document.querySelector(".hit-button");
 var holdButton = document.querySelector(".hold-button");
-var playerInc = 5;
-var dealerInc = 6;
 
 var body = document.body;
 var infoEl1 = document.createElement("div");
@@ -221,10 +218,11 @@ function populateCurrencyScreen() {
 
 // Start Game
 function startGame() {
+  startGameLogic();
   startButton.style.display = "none";
 
   quitButton.style.display = "grid";
-  nextRound.style.display = "grid"; 
+  nextRound.style.display = "grid";
   hitButton.style.display = "grid";
   holdButton.style.display = "grid";
   infoEl1.className = "grid row-start-3 col-start-2"
@@ -329,27 +327,6 @@ nextRound.addEventListener("click", () => {
   infoEl20.className = "hidden"
 });
 
-hitButton.addEventListener("click", () => {
-  if(playerInc === 5){
-    infoEl5.className = "grid row-start-3 col-start-4"
-  } else if (playerInc === 7){
-    infoEl7.className = "grid row-start-3 col-start-5"
-  } else if (playerInc === 9){
-    infoEl9.className = "grid row-start-3 col-start-6"
-  } else if (playerInc === 11){
-    infoEl11.className = "grid row-start-3 col-start-7"
-  } else if (playerInc === 13){
-    infoEl13.className = "grid row-start-3 col-start-8"
-  } else if (playerInc === 15){
-    infoEl15.className = "grid row-start-3 col-start-9"
-  } else if (playerInc === 17){
-    infoEl17.className = "grid row-start-3 col-start-10"
-  } else if (playerInc === 19){
-    infoEl19.className = "grid row-start-3 col-start-11"
-  }
-  
-  playerInc += 2;
-});
 // function that returns the cards image
 function getCardCode(cards) {
   return cards.code;
@@ -444,13 +421,89 @@ function populateCardImage(code) {
   imageEl20.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png");
 }
 
-// ====[Game Logic]====
+// ================================[Game Logic]================================
 var maxRounds = 18;
 var currentRound = 0;
 var wins = 0;
 var losses = 0;
 var ties = 0;
 var betAmount = 0;
+var playerHand = [];
+var dealerHand = [];
+var playerTotal = 0;
+var dealerTotal = 0;
+var playerInc = 5;
+var dealerInc = 6;
+var timerCount = 3;
+
+// logic for dealer hand
+function dealerLogic() {
+  var i = 2;
+  while (dealerTotal <= 17) {
+    dealerTotal += dealerHand[i];
+    i++;
+    if (dealerInc === 6) {
+      infoEl6.className = "grid row-start-1 col-start-4"
+    } else if (dealerInc === 8) {
+      infoEl8.className = "grid row-start-1 col-start-5"
+    } else if (dealerInc === 10) {
+      infoEl10.className = "grid row-start-1 col-start-6"
+    } else if (dealerInc === 12) {
+      infoEl12.className = "grid row-start-1 col-start-7"
+    } else if (dealerInc === 14) {
+      infoEl14.className = "grid row-start-1 col-start-8"
+    } else if (dealerInc === 16) {
+      infoEl16.className = "grid row-start-1 col-start-9"
+    } else if (dealerInc === 18) {
+      infoEl18.className = "grid row-start-1 col-start-10"
+    } else if (dealerInc === 20) {
+      infoEl20.className = "grid row-start-1 col-start-11"
+    }
+    dealerInc += 2;
+  }
+}
+
+// displays next card and adds to deck total on hit
+hitButton.addEventListener("click", () => {
+  if (playerInc === 5) {
+    playerTotal += playerHand[2];
+    infoEl5.className = "grid row-start-3 col-start-4"
+  } else if (playerInc === 7) {
+    playerTotal += playerHand[3];
+    infoEl7.className = "grid row-start-3 col-start-5"
+  } else if (playerInc === 9) {
+    playerTotal += playerHand[4];
+    infoEl9.className = "grid row-start-3 col-start-6"
+  } else if (playerInc === 11) {
+    playerTotal += playerHand[5];
+    infoEl11.className = "grid row-start-3 col-start-7"
+  } else if (playerInc === 13) {
+    playerTotal += playerHand[6];
+    infoEl13.className = "grid row-start-3 col-start-8"
+  } else if (playerInc === 15) {
+    playerTotal += playerHand[7];
+    infoEl15.className = "grid row-start-3 col-start-9"
+  } else if (playerInc === 17) {
+    playerTotal += playerHand[8];
+    infoEl17.className = "grid row-start-3 col-start-10"
+  } else if (playerInc === 19) {
+    playerTotal += playerHand[9];
+    infoEl19.className = "grid row-start-3 col-start-11"
+  }
+  playerInc += 2;
+});
+
+// ends the round, begins calculations
+holdButton.addEventListener("click", () => {
+  dealerLogic();
+  tallyResult(determineResult());
+  imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png");
+  console.log('player: ' + playerTotal);
+  console.log('dealer: ' + dealerTotal);
+  console.log('Wins: ' + wins);
+  console.log('Losses: ' + losses);
+  console.log('Ties: ' + ties);
+});
 
 // removes bet amount from total and adds to bet variable
 function makeBet(money) {
@@ -525,30 +578,23 @@ function displayCardImage() {
   var img = $("<img>").attr("src", "https://www.deckofcardsapi.com/static/img/" + cards.code[0] + ".png")
 }
 
-// function for handling each round
-function playRound() {
-  var playerHand = [];
-  var dealerHand = [];
-  var playerTotal = 0;
-  var dealerTotal = 0;
-
+// function for handling each round (make function that resets )
+function populateCalculationArrays() {
   for (let i = 0; i < cards.length; i += 2) {
     playerHand.push(convertValue(getCardValue(cards[i]), true))
   }
   for (let i = 1; i < cards.length; i += 2) {
     dealerHand.push(convertValue(getCardValue(cards[i]), false))
   }
+}
 
-  console.log(playerHand);
-  console.log(dealerHand);
-  playerTotal = playerHand[0] + playerHand[1];
-  dealerTotal = dealerHand[0] + dealerHand[1];
+function playRound() {
 
   return determineResult(playerTotal, dealerTotal);
 }
 
 // determines the result for each round as well as handling cash results
-function determineResult(playerTotal, dealerTotal) {
+function determineResult() {
   if (playerTotal > 21) {
     betAmount = 0;
     return 2;
@@ -591,7 +637,38 @@ function gameLoop() {
   }
 }
 
+function startGameLogic() {
+  populateCalculationArrays();
+  playerTotal = playerHand[0] + playerHand[1];
+  dealerTotal = dealerHand[0] + dealerHand[1];
+}
+
+function intialize() {
+  startButton.style.display = "none";
+}
+
+function loadLogic() {
+  populateCardImage();
+  populateCurrencyScreen();
+  startButton.style.display = "grid";
+}
+
 getApi();
 
-setTimeout(populateCardImage, 5000);
-setTimeout(populateCurrencyScreen, 5000);
+intialize();
+startBtnTimer();
+setTimeout(loadLogic, 3000);
+
+function startBtnTimer() {
+  console.log(timerCount);
+  timer = setInterval(function () {
+    timerCount--;
+    //timerElement.textContent = timerCount;
+    if (timerCount > 0) {
+      console.log(timerCount);
+    }
+    if (timerCount < 0) {
+      clearInterval(timer);
+    }
+  }, 1000);
+}
