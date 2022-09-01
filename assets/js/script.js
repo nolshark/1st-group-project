@@ -91,6 +91,7 @@ var scoresButton = document.querySelector(".scores-button");
 var optsReturn = document.querySelector(".options-return");
 var curReturn = document.querySelector(".currency-return");
 var quitButton = document.querySelector(".quit-button");
+var nextRound = document.querySelector(".nextround-button");
 var infoScreens = document.querySelector(".info-screens");
 var rules = document.querySelector(".rules");
 var highScores = document.querySelector(".high-scores");
@@ -206,6 +207,30 @@ function populateCurrencyScreen() {
   pNZD.textContent = currencyList[7] + " " + convertCurrency(currencyList[7]);
   pPLN.textContent = currencyList[8] + " " + convertCurrency(currencyList[8]);
   pUAH.textContent = currencyList[9] + " " + convertCurrency(currencyList[9]);
+  infoEl21.className = "hidden grid row-start-1";
+  infoEl22.className = "hidden grid row-start-2 col-start-1";
+  infoEl23.className = "hidden grid row-start-2 col-start-2";
+  infoEl24.className = "hidden grid row-start-2 col-start-3";
+  infoEl25.className = "hidden grid row-start-3 col-start-1";
+  infoEl26.className = "hidden grid row-start-3 col-start-2";
+  infoEl27.className = "hidden grid row-start-3 col-start-3";
+  infoEl28.className = "hidden grid row-start-4 col-start-1";
+  infoEl29.className = "hidden grid row-start-4 col-start-2";
+  infoEl30.className = "hidden grid row-start-4 col-start-3";
+}
+
+// Start Game
+function startGame() {
+  startButton.style.display = "none";
+
+  quitButton.style.display = "grid";
+  nextRound.style.display = "grid"; 
+  hitButton.style.display = "grid";
+  holdButton.style.display = "grid";
+  infoEl1.className = "grid row-start-3 col-start-2"
+  infoEl2.className = "grid row-start-1 col-start-2"
+  infoEl3.className = "grid row-start-3 col-start-3"
+  infoEl4.className = "grid row-start-1 col-start-3"
   infoEl21.className = "grid row-start-1";
   infoEl22.className = "grid row-start-2 col-start-1";
   infoEl23.className = "grid row-start-2 col-start-2";
@@ -216,19 +241,6 @@ function populateCurrencyScreen() {
   infoEl28.className = "grid row-start-4 col-start-1";
   infoEl29.className = "grid row-start-4 col-start-2";
   infoEl30.className = "grid row-start-4 col-start-3";
-}
-
-// Start Game
-function startGame() {
-  startButton.style.display = "none";
-
-  quitButton.style.display = "grid";
-  hitButton.style.display = "grid";
-  holdButton.style.display = "grid";
-  infoEl1.className = "grid row-start-3 col-start-2"
-  infoEl2.className = "grid row-start-1 col-start-2"
-  infoEl3.className = "grid row-start-3 col-start-3"
-  infoEl4.className = "grid row-start-1 col-start-3"
 }
 
 startButton.addEventListener("click", startGame);
@@ -270,6 +282,51 @@ quitButton.addEventListener("click", () => {
   quitButton.style.display = "none";
   hitButton.style.display = "none";
   holdButton.style.display = "none";
+
+  infoEl1.className = "hidden"
+  infoEl2.className = "hidden"
+  infoEl3.className = "hidden"
+  infoEl4.className = "hidden"
+  infoEl5.className = "hidden"
+  infoEl6.className = "hidden"
+  infoEl7.className = "hidden"
+  infoEl8.className = "hidden"
+  infoEl9.className = "hidden"
+  infoEl10.className = "hidden"
+  infoEl11.className = "hidden"
+  infoEl12.className = "hidden"
+  infoEl13.className = "hidden"
+  infoEl14.className = "hidden"
+  infoEl15.className = "hidden"
+  infoEl16.className = "hidden"
+  infoEl17.className = "hidden"
+  infoEl18.className = "hidden"
+  infoEl19.className = "hidden"
+  infoEl20.className = "hidden"
+});
+
+//next round button
+nextRound.addEventListener("click", () => {
+  infoEl1.className = "hidden"
+  infoEl2.className = "hidden"
+  infoEl3.className = "hidden"
+  infoEl4.className = "hidden"
+  infoEl5.className = "hidden"
+  infoEl6.className = "hidden"
+  infoEl7.className = "hidden"
+  infoEl8.className = "hidden"
+  infoEl9.className = "hidden"
+  infoEl10.className = "hidden"
+  infoEl11.className = "hidden"
+  infoEl12.className = "hidden"
+  infoEl13.className = "hidden"
+  infoEl14.className = "hidden"
+  infoEl15.className = "hidden"
+  infoEl16.className = "hidden"
+  infoEl17.className = "hidden"
+  infoEl18.className = "hidden"
+  infoEl19.className = "hidden"
+  infoEl20.className = "hidden"
 });
 
 hitButton.addEventListener("click", () => {
