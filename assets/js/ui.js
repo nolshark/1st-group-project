@@ -13,6 +13,26 @@ var curChoice = document.querySelector(".currency-choice");
 var tranChoice = document.querySelector(".translate-choice");
 var hitButton = document.querySelector(".hit-button");
 var holdButton = document.querySelector(".hold-button");
+var p1 = document.querySelector(".p-1"); 
+var d1 = document.querySelector(".d-1"); 
+var p2 = document.querySelector(".p-2"); 
+var d2 = document.querySelector(".d-2"); 
+var p3 = document.querySelector(".p-3"); 
+var d3 = document.querySelector(".d-3"); 
+var p4 = document.querySelector(".p-4"); 
+var d4 = document.querySelector(".d-4"); 
+var p5 = document.querySelector(".p-5"); 
+var d5 = document.querySelector(".d-5"); 
+var p6 = document.querySelector(".p-6"); 
+var d6 = document.querySelector(".d-6"); 
+var p7 = document.querySelector(".p-7"); 
+var d7 = document.querySelector(".d-7"); 
+var p8 = document.querySelector(".p-8"); 
+var d8 = document.querySelector(".d-8"); 
+var p9 = document.querySelector(".p-9"); 
+var d9 = document.querySelector(".d-9"); 
+var p10 = document.querySelector(".p-10"); 
+var d10 = document.querySelector(".d-10"); 
 
 // Start Game
 
@@ -22,12 +42,15 @@ function startGame () {
     quitButton.style.display = "grid";
     hitButton.style.display = "grid";
     holdButton.style.display = "grid";
+    p1.style.display = "grid"; 
+    d1.style.display = "grid"; 
+    p2.style.display = "grid"; 
+    d2.style.display = "grid"; 
 }
 
-startButton.addEventListener("click", startGame);
+//startButton.addEventListener("click", startGame);
 
 //Get rules
-
 
 rulesButton.addEventListener("click", () => {
   rulesButton.style.display = "none";
