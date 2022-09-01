@@ -100,8 +100,8 @@ var curChoice = document.querySelector(".currency-choice");
 var tranChoice = document.querySelector(".translate-choice");
 var hitButton = document.querySelector(".hit-button");
 var holdButton = document.querySelector(".hold-button");
-var playerInc = 4; 
-var dealerInc = 5; 
+var playerInc = 5;
+var dealerInc = 6;
 
 var body = document.body;
 var infoEl1 = document.createElement("div");
@@ -273,8 +273,26 @@ quitButton.addEventListener("click", () => {
 });
 
 hitButton.addEventListener("click", () => {
-playerInc += 2; 
-}); 
+  if(playerInc === 5){
+    infoEl5.className = "grid row-start-3 col-start-4"
+  } else if (playerInc === 7){
+    infoEl7.className = "grid row-start-3 col-start-5"
+  } else if (playerInc === 9){
+    infoEl9.className = "grid row-start-3 col-start-6"
+  } else if (playerInc === 11){
+    infoEl11.className = "grid row-start-3 col-start-7"
+  } else if (playerInc === 13){
+    infoEl13.className = "grid row-start-3 col-start-8"
+  } else if (playerInc === 15){
+    infoEl15.className = "grid row-start-3 col-start-9"
+  } else if (playerInc === 17){
+    infoEl17.className = "grid row-start-3 col-start-10"
+  } else if (playerInc === 19){
+    infoEl19.className = "grid row-start-3 col-start-11"
+  }
+  
+  playerInc += 2;
+});
 // function that returns the cards image
 function getCardCode(cards) {
   return cards.code;
@@ -345,28 +363,28 @@ function populateCardImage(code) {
   infoEl19.className = "hidden grid row-start-3 col-start-11"
   infoEl20.className = "hidden grid row-start-1 col-start-11"
 
-  imageEl1.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png")
-  imageEl2.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png")
-  imageEl3.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png")
+  imageEl1.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[0]) + ".png");
+  imageEl2.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[1]) + ".png");
+  imageEl3.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[2]) + ".png");
   //imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[3]) + ".png")
- //("src","https://www.deckofcardsapi.com/static/img/back.png")
-  imageEl4.setAttribute("src","https://www.deckofcardsapi.com/static/img/back.png")
-  imageEl5.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png")
-  imageEl6.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png")
-  imageEl7.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png")
-  imageEl8.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[7]) + ".png")
-  imageEl9.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[8]) + ".png")
-  imageEl10.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[9]) + ".png")
-  imageEl11.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[10]) + ".png")
-  imageEl12.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[11]) + ".png")
-  imageEl13.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[12]) + ".png")
-  imageEl14.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[13]) + ".png")
-  imageEl15.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[14]) + ".png")
-  imageEl16.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[15]) + ".png")
-  imageEl17.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[16]) + ".png")
-  imageEl18.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[17]) + ".png")
-  imageEl19.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[18]) + ".png")
-  imageEl20.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png")
+  //("src","https://www.deckofcardsapi.com/static/img/back.png")
+  imageEl4.setAttribute("src", "https://www.deckofcardsapi.com/static/img/back.png");
+  imageEl5.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[4]) + ".png");
+  imageEl6.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[5]) + ".png");
+  imageEl7.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[6]) + ".png");
+  imageEl8.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[7]) + ".png");
+  imageEl9.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[8]) + ".png");
+  imageEl10.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[9]) + ".png");
+  imageEl11.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[10]) + ".png");
+  imageEl12.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[11]) + ".png");
+  imageEl13.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[12]) + ".png");
+  imageEl14.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[13]) + ".png");
+  imageEl15.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[14]) + ".png");
+  imageEl16.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[15]) + ".png");
+  imageEl17.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[16]) + ".png");
+  imageEl18.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[17]) + ".png");
+  imageEl19.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[18]) + ".png");
+  imageEl20.setAttribute("src", "https://www.deckofcardsapi.com/static/img/" + getCardCode(cards[19]) + ".png");
 }
 
 // ====[Game Logic]====
